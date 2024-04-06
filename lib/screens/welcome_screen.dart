@@ -29,8 +29,8 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 onPressed: () {},
               ),
-              TextButton(
-                style: TextButton.styleFrom(
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
                     minimumSize: const Size(200.0, 40.0),
                     backgroundColor: Colors.black),
                 child: const Text(
