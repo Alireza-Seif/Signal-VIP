@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signal_vip/widgets/blog_post.dart';
 
 class BlogScreen extends StatelessWidget {
   const BlogScreen({super.key});
@@ -13,53 +14,31 @@ class BlogScreen extends StatelessWidget {
         centerTitle: true,
         title: const Text('News & Signals VIP'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: const Image(image: AssetImage('assets/images/s.png')),
-            ),
-            const Text(
-              'SafeMoon signal for 10 April',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              blogPost(
+                  title: 'SafeMoon', imageName: 's', buy: 1000, sale: 1200),
+              blogPost(
+                  title: 'Alchemy Pay', imageName: 'a', buy: 1540, sale: 1700),
+              blogPost(title: 'Ripple', imageName: 'r', buy: 1100, sale: 1150),
+              blogPost(title: 'Cosmos', imageName: 'c', buy: 1050, sale: 1270),
+              const SizedBox(height: 20),
+              TextButton(
+                style: TextButton.styleFrom(foregroundColor: Colors.red),
+                child: const Text(
+                  'Sign Out',
+                  style: TextStyle(fontSize: 16),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
-            ),
-            const SizedBox(height: 5),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.event_busy,
-                  size: 20,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  'Buy on 12,360',
-                  style: TextStyle(color: Colors.green),
-                ),
-                SizedBox(width: 20),
-                Icon(
-                  Icons.price_check_sharp,
-                  size: 20,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  'Sell on 12,560',
-                  style: TextStyle(color: Colors.red),
-                ),
-              ],
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
