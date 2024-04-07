@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:signal_vip/widgets/blog_post.dart';
 
 class BlogScreen extends StatelessWidget {
-  const BlogScreen({super.key});
+  BlogScreen({super.key});
+
+  final List<Widget> listBlogPost = [
+    blogPost(title: 'SafeMoon', imageName: 's', buy: 1000, sale: 1200),
+    blogPost(title: 'Alchemy Pay', imageName: 'a', buy: 1540, sale: 1700),
+    blogPost(title: 'Ripple', imageName: 'r', buy: 1100, sale: 1150),
+    blogPost(title: 'Cosmos', imageName: 'c', buy: 1050, sale: 1270),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +27,7 @@ class BlogScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              blogPost(
-                  title: 'SafeMoon', imageName: 's', buy: 1000, sale: 1200),
-              blogPost(
-                  title: 'Alchemy Pay', imageName: 'a', buy: 1540, sale: 1700),
-              blogPost(title: 'Ripple', imageName: 'r', buy: 1100, sale: 1150),
-              blogPost(title: 'Cosmos', imageName: 'c', buy: 1050, sale: 1270),
+              ...listBlogPost,
               const SizedBox(height: 20),
               TextButton(
                 style: TextButton.styleFrom(foregroundColor: Colors.red),

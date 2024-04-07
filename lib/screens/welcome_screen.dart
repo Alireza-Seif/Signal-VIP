@@ -30,7 +30,7 @@ class WelcomeScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16, color: Colors.black),
                 ),
                 onPressed: () {
-                  navigatorToPages(context, const BlogScreen());
+                  navigatorToPages(context, BlogScreen());
                 },
               ),
               ElevatedButton(
