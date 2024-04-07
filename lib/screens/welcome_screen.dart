@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:signal_vip/screens/blog_screen.dart';
+import 'package:signal_vip/screens/password_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -27,7 +29,9 @@ class WelcomeScreen extends StatelessWidget {
                   'Log In',
                   style: TextStyle(fontSize: 16, color: Colors.black),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  navigatorToPages(context, const BlogScreen());
+                },
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -38,10 +42,27 @@ class WelcomeScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
                 onPressed: () {},
+              ),
+              TextButton(
+                child: const Text(
+                  'Forgot password',
+                  style: TextStyle(fontSize: 12, color: Colors.black),
+                ),
+                onPressed: () {
+                  navigatorToPages(context, const PasswordScreen());
+                },
               )
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  void navigatorToPages(BuildContext context, Widget page) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) => page,
       ),
     );
   }
